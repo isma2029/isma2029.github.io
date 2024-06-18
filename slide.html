@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Resetas de ensalada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f8f9fa;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 600px;
+            background: #f5f5f5;
+            box-shadow: 0 30px 50px #dbdbdb;
+        }
+        .container .slide .item {
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+            box-shadow: 0 30px 50px #505050;
+            background-position: 50% 50%;
+            background-size: cover;
+            display: inline-block;
+            transition: 0.5s;
+        }
+        .slide .item:nth-child(1),
+        .slide .item:nth-child(2) {
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .slide .item:nth-child(3) {
+            left: 50%;
+        }
+        .slide .item:nth-child(4) {
+            left: calc(50% + 220px);
+        }
+        .slide .item:nth-child(5) {
+            left: calc(50% + 440px);
+        }
+        .slide .item:nth-child(n + 6) {
+            left: calc(50% + 660px);
+            opacity: 0;
+        }
+        .item .content {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            text-align: left;
+            color: aqua;
+            font-family: Arial, sans-serif; /* Añadido para mejorar la legibilidad */
+            display: none; /* Ocultar por defecto */
+            padding: 20px;
+        }
+        .slide .item:nth-child(2) .content {
+            display: block; /* Mostrar contenido cuando se desee */
+        }
+        .content .name {
+            background-color: #00000077;
+            font-size: 24px;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0;
+            animation: animate 1s ease-in-out 0.5s forwards;
+            max-width: 30%;
+        }
+        .content .des {
+            background-color: #00000077;
+            margin-top: 10px;
+            opacity: 0;
+            animation: animate 1s ease-in-out 1s forwards;
+            max-width: 30%;
+        }
+        .content .button {
+            margin-top: 20px;
+            opacity: 0;
+            animation: animate 1s ease-in-out 1.5s forwards;
+        }
+        @keyframes animate {
+            from {
+                opacity: 0;
+                transform: translate(0, 50px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(0);
+            }
+        }
+        .button {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+        }
+        .button button {
+            width: 40px;
+            height: 35px;
+            border-radius: 8px;
+            border: 1px solid #000;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: 0.3s;
+        }
+        .button button:hover {
+            background-color: #505050;
+            color: #fff;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    let next = document.querySelector('.next');
+    let prev = document.querySelector('.prev');
+
+    next.addEventListener('click', function(){
+        let items = document.querySelectorAll('.item');
+        let activeItem = document.querySelector('.item.active');
+
+        
+        document.querySelector('.slide').appendChild(items[0]);
+
+       
+        activeItem.classList.remove('active');
+
+        
+        items[0].classList.add('active');
+    });
+
+    prev.addEventListener('click', function(){
+        let items = document.querySelectorAll('.item');
+        let activeItem = document.querySelector('.item.active');
+
+    
+        document.querySelector('.slide').prepend(items[items.length - 1]);
+
+        activeItem.classList.remove('active');
+
+        items[items.length - 1].classList.add('active');
+    });
+});
+
+    </script>
+    
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="slide">
+
+            <div class="item" style="background-image: url(ensalada.webp);">
+
+                <div class="content">
+
+                    <div class="name">Ensalada</div>
+                    <div class="des">La ensalada tropical con salsa rosa consiste en una elaboración muy fresca que
+                                    se puede comer como entrante o para acompañar cualquier plato. Una elaboración 
+                                    con deliciosos contrastes, ideal para una comida especial, sobre todo, se prepara
+                                     para las fiestas de Navidad, ya que el toque de las gambas aporta ese toque festivo. 
+                                     También debes saber que para hacer esta ensalada puedes añadir otros ingredientes o 
+                                     hacerla aún más variada añadiendo aceitunas, palitos de cangrejo, mejillones y frutas,
+                                      como la piña, el mango, etc.</div>
+                    <
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url(espinacas_y_mango.webp);">
+                <div class="content">
+                    <div class="name">Ensalada de espinaca </div>
+                    <div class="des">Empieza preparando las pechugas de pollo a la plancha. 
+                        Para darles sabor, puedes condimentarlas con pimienta, hierbas provenzales,
+                        pimiento dulce y otras esencias que te gusten. Lava las espinacas con
+                        abundante agua y resérvalas. Pícalas si es necesario, puedes usar espinaca
+                        baby para que sea más cómodo preparar la ensalada. Pela y pica el mango en 
+                        cubitos de aproximadamente 3 cm. Asimismo, pica la cebolla. Prepara una cama 
+                        de espinacas, coloca luego el pollo picado en tiras, el mango, la cebolla y 
+                        las nueces. Condimenta todo con sal y pimienta y rocía con aceite de oliva. 
+                    </div> 
+        
+                </div>
+             </div>
+
+            <div class="item" style="background-image: url(ensalada_de_frutas_con_yogur.webp);">
+                <div class="content">
+                    <div class="name">Ensalada fresa</div>
+                    <div class="des">Vierte la leche condensada y el yogur en un bol y mezcla hasta 
+                        integrar ambos ingredientes. Existen recetas que utilizan: leche evaporada, 
+                        leche agria, yogur griego, crema batida, leche de almendras, entre otras. 
+                        Agrega todas las frutas a la mezcla y remueve con cuidado. Previamente lava 
+                        las frutas frescas cuidadosamente. Por otro lado, escurre las frutas en almíbar, 
+                        y reserva la fruta y el almíbar por separado. Puedes utilizar frutas en almíbar, 
+                        solo frutas frescas o combinar ambas. ¿Qué frutas? Las de tú preferencia.
+                        Incorpora el resto de los ingredientes a la mezcla: los malvaviscos, las pasas, 
+                        el coco y las almendras. Mezcla hasta que se integren todos los ingredientes de 
+                        la ensalada de frutas con yogur para niños, con mucho cuidado para no desmenuzar 
+                        la fruta. Si la mezcla queda muy espesa puedes aligerarla con el almíbar reservado.
+                        ¡Listo! Un postre ideal para grandes celebraciones: cumpleaños, Navidad, Día de Acción 
+                        de Gracias, etc. ¡Una golosina exquisita para grandes y chicos! Comparte tu experiencia 
+                        con nosotros y prepara esta ensalada de frutas con yogur para niños y adultos.  
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url(burgerfondo.jpg);">
+                <div class="content">
+                    <div class="name">Ensalada de espinaca y mango</div>
+                    <div class="des">Empieza preparando las pechugas de pollo a la plancha. 
+                        Para darles sabor, puedes condimentarlas con pimienta, hierbas provenzales,
+                        pimiento dulce y otras esencias que te gusten. Lava las espinacas con
+                        abundante agua y resérvalas. Pícalas si es necesario, puedes usar espinaca
+                        baby para que sea más cómodo preparar la ensalada. Pela y pica el mango en 
+                        cubitos de aproximadamente 3 cm. Asimismo, pica la cebolla. Prepara una cama 
+                        de espinacas, coloca luego el pollo picado en tiras, el mango, la cebolla y 
+                        las nueces. Condimenta todo con sal y pimienta y rocía con aceite de oliva. 
+                    </div>
+                    
+                </div>
+             </div>
+
+             <div class="item" style="background-image: url(ensalada.jpg);">
+                <div class="content">
+                    <div class="name">Ensalada de espinaca y mango</div>
+                    <div class="des">Empieza preparando las pechugas de pollo a la plancha. 
+                        Para darles sabor, puedes condimentarlas con pimienta, hierbas provenzales,
+                        pimiento dulce y otras esencias que te gusten. Lava las espinacas con
+                        abundante agua y resérvalas. Pícalas si es necesario, puedes usar espinaca
+                        baby para que sea más cómodo preparar la ensalada. Pela y pica el mango en 
+                        cubitos de aproximadamente 3 cm. Asimismo, pica la cebolla. Prepara una cama 
+                        de espinacas, coloca luego el pollo picado en tiras, el mango, la cebolla y 
+                        las nueces. Condimenta todo con sal y pimienta y rocía con aceite de oliva. </div>
+                    
+                </div>
+             </div>
+
+             
+
+
+
+        </div>
+
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+    </div>
+    
+
+    
+</body>
+</html>
